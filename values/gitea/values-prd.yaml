@@ -3,5 +3,5 @@ persistence:
 service:
   type: LoadBalancer
 ingress:
-  enabled: false
+  enabled: true
   className: nginx
