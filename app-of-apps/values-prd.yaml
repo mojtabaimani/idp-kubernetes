@@ -21,3 +21,12 @@ helmCharts:
   nginx-ingress:
     enabled: true
     targetRevision: 0.18.0
+
+  cert-manager:
+    enabled: false
+
+  actions-runner-controller:
+    enabled: false
+
+  actions-runner:
+    enabled: false

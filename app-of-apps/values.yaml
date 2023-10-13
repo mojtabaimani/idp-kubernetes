@@ -95,3 +95,10 @@ helmCharts:
     targetRevision: HEAD
     namespace: actions-runner-system
     syncWave: 1
+
+  gitea:
+    enabled: true
+    repoURL: https://dl.gitea.io/charts
+    namespace: gitea
+    targetRevision: 9.5.0
+    chart: gitea
