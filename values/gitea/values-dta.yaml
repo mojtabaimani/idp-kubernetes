@@ -2,3 +2,6 @@ persistence:
   enabled: true
 service:
   type: LoadBalancer
+ingress:
+  enabled: false
+  className: nginx
