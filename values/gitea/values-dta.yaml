@@ -5,3 +5,22 @@ service:
 ingress:
   enabled: true
   className: nginx
+  hosts:
+    - host: gitea.127.0.0.1.nip.io
+      path: /
+      pathType: Prefix
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+
+
+
+## @section Ingress
+## @param ingress.enabled Enable ingress
+## @param ingress.className Ingress class name
+## @param ingress.annotations Ingress annotations
+## @param ingress.hosts[0].host Default Ingress host
+## @param ingress.hosts[0].paths[0].path Default Ingress path
+## @param ingress.hosts[0].paths[0].pathType Ingress path type
+## @param ingress.tls Ingress tls settings
+## @extra ingress.apiVersion Specify APIVersion of ingress object. Mostly would only be used for argocd.
