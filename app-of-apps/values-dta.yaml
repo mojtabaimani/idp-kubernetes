@@ -40,3 +40,6 @@ helmCharts:
 
   actions-runner:
     enabled: false
+
+  gitea:
+    enabled: false
