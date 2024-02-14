@@ -30,3 +30,6 @@ helmCharts:
 
   actions-runner:
     enabled: false
+
+  harbor:
+    enabled: false
