@@ -102,3 +102,10 @@ helmCharts:
     namespace: gitea
     targetRevision: 9.5.0
     chart: gitea
+
+  postgresql:
+    enabled: true
+    repoURL: https://charts.bitnami.com/bitnami
+    namespace: postgresql
+    targetRevision: 14.1.0
+    chart: postgresql
