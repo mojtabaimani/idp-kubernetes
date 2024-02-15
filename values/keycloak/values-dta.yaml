@@ -4,7 +4,7 @@ postgresql:
 externalDatabase:
   host: "postgresql.postgresql.svc.cluster.local"
   password: "Q1Bx8aKdIG"
-  user: root
+  username: admin
 
 ingress:
   ## @param ingress.enabled Enable ingress record generation for Keycloak
