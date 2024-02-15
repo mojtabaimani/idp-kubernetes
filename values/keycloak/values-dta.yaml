@@ -3,11 +3,7 @@ postgresql:
 
 externalDatabase:
   host: "postgresql.postgresql.svc.cluster.local"
-  port: 5432
-  user: bn_keycloak
-  database: bitnami_keycloak
-  existingSecret: "postgres"
-  annotations: {}
+  password: "Q1Bx8aKdIG"
 
 ingress:
   ## @param ingress.enabled Enable ingress record generation for Keycloak
