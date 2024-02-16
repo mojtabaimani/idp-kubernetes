@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: mojtabaimani/backstage
+  pullPolicy: IfNotPresent
+  tag: "1.0"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: backstage.127.0.0.1.nip.io
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []

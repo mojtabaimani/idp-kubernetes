@@ -22,6 +22,11 @@ helmCharts:
     enabled: true
     namespace: default
 
+  backstage:
+    enabled: true
+    chart: backstage
+
+
   keycloak:
     enabled: true
     repoURL: registry-1.docker.io/bitnamicharts

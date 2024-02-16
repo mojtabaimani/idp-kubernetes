@@ -46,3 +46,6 @@ helmCharts:
 
   postgresql:
     enabled: true
+
+  backstage:
+    enabled: true
