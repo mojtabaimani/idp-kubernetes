@@ -1,5 +1,6 @@
 cloudnativePgClusters:
   - name: my-postgres-cluster-1
+    namespace: cloudnative-pg
     postgresql:
       version: "13"
       instances: 3
@@ -24,6 +25,7 @@ cloudnativePgClusters:
       enabled: false
 
   - name: my-postgres-cluster-2
+    namespace: cloudnative-pg
     postgresql:
       version: "12"
       instances: 2
