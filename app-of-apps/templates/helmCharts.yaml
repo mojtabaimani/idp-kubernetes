@@ -21,8 +21,8 @@ spec:
     {{- else }}
     path: apps/{{ default $name .name }}
     {{- end }}
-    helm:
 {{- if fileExists (printf "$valuesRepo/values/%s/values-%s.yaml" (default $name .name) $.Values.global.env) }}
+    helm:
       valueFiles:
       - $valuesRepo/values/{{ default $name .name }}/values-{{ $.Values.global.env }}.yaml
 {{- end }}
