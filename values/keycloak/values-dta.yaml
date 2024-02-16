@@ -3,7 +3,7 @@ postgresql:
 
 externalDatabase:
   host: "postgresql.postgresql.svc.cluster.local"
-  password: "Q1Bx8aKdIG"
+  password: Q1Bx8aKdIG
   user: postgres
 
 ingress:
