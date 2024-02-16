@@ -45,7 +45,10 @@ helmCharts:
     enabled: true
 
   postgresql:
-    enabled: true
+    enabled: false
 
   backstage:
+    enabled: true
+
+  cloudnative-pg:
     enabled: true

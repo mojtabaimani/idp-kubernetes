@@ -113,3 +113,10 @@ helmCharts:
     namespace: postgresql
     targetRevision: 14.1.0
     chart: postgresql
+
+  cloudnative-pg:
+    enabled: true
+    repoURL: https://cloudnative-pg.github.io/charts
+    namespace: cloudnative-pg
+    targetRevision: 0.20.1
+    chart: cloudnative-pg
