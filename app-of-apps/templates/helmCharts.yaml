@@ -21,11 +21,9 @@ spec:
     {{- else }}
     path: apps/{{ default $name .name }}
     {{- end }}
-{{- if fileExists (printf "$valuesRepo/values/%s/values-%s.yaml" (default $name .name) $.Values.global.env) }}
     helm:
       valueFiles:
       - $valuesRepo/values/{{ default $name .name }}/values-{{ $.Values.global.env }}.yaml
-{{- end }}
   - repoURL: {{ $.Values.global.spec.values.repoURL }}
     targetRevision: {{ default $.Values.global.spec.values.targetRevision .valuesTargetRevision }}
     ref: valuesRepo
