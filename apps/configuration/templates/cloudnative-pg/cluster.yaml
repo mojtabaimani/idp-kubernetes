@@ -1,0 +1,24 @@
+{{- range .Values.cloudnativePgClusters }}
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ .name }}
+spec:
+  instances: {{ .postgresql.instances }}
+  postgresql:
+    version: {{ .postgresql.version }}
+  users:
+{{ toYaml .users | indent 4 }}
+  databases:
+{{ toYaml .databases | indent 4 }}
+  storage:
+    size: {{ .storage.size }}
+    storageClassName: {{ .storage.storageClassName }}
+  backup:
+    enabled: {{ .backup.enabled }}
+    schedule: {{ .backup.schedule }}
+    keep: {{ .backup.keep }}
+  recovery:
+    enabled: {{ .recovery.enabled }}
+---
+{{- end }}

@@ -120,3 +120,6 @@ helmCharts:
     namespace: cloudnative-pg
     targetRevision: 0.20.1
     chart: cloudnative-pg
+
+  configuration:
+    enabled: true
