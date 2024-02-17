@@ -10,7 +10,7 @@ cloudnativePgClusters:
           name: postgres-password-1
           key: password
     databases:
-      mydb1: masteruser1
+      - mydb1: masteruser1
     secret:
       name: postgres-password-1
       password: "changeit"  # Base64 encode actual passwords

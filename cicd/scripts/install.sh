@@ -56,7 +56,8 @@ PROJECT_NAME=platform-$ENVIRONMENT
 VALUES_FILE=values/argocd/values-$ENVIRONMENT.yaml
 # helm repo add argocd https://argoproj.github.io/argo-helm
 # helm repo update
-helm upgrade --install --kube-context $CONTEXT -n $NAMESPACE -f $VALUES_FILE argocd argocd/argo-cd --version 6.1.0 --wait --set configs.secret.argocdServerAdminPassword=$BCRYPT_HASH
+echo Installing argocd using helm...
+helm upgrade --install --kube-context $CONTEXT -n $NAMESPACE -f $VALUES_FILE argocd argocd/argo-cd --version 6.1.0 --wait --set configs.secret.argocdServerAdminPassword=$BCRYPT_HASH > /dev/null
 
 
 # add project to the argocd server using yaml file

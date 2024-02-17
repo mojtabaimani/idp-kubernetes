@@ -7,10 +7,10 @@ global:
       server: https://kubernetes.default.svc
     source:
       repoURL: https://github.com/mojtabaimani/idp-kubernetes.git
-      targetRevision: HEAD
+      targetRevision: 1-pg-configuration
     values:
       repoURL: https://github.com/mojtabaimani/idp-kubernetes.git
-      targetRevision: HEAD
+      targetRevision: 1-pg-configuration
 
 applications:
 
@@ -96,7 +96,6 @@ helmCharts:
   actions-runner:
     enabled: true
     repoURL: https://github.com/mojtabaimani/idp-kubernetes.git
-    targetRevision: HEAD
     namespace: actions-runner-system
     syncWave: 1
 
