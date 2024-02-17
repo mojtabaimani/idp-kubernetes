@@ -41,12 +41,22 @@ kubectl create secret generic argocd-repo-green-services --context $CONTEXT -n $
 kubectl label secret argocd-repo-green-services argocd.argoproj.io/secret-type=repository --context $CONTEXT -n $NAMESPACE
 fi
 
+# Create secret for argocd admin password from environment variable
+# Check if the ADMIN_PASSWORD environment variable is set
+if [ -z "$ADMIN_PASSWORD" ]; then
+  echo "The ADMIN_PASSWORD environment variable is not set."
+  exit 1
+fi
+
+# Generate bcrypt hash of the admin password
+BCRYPT_HASH=$(htpasswd -nbBC 10 "" $ADMIN_PASSWORD | tr -d ':\n' | sed 's/$2y/$2a/')
+
 # install argocd using helm
 PROJECT_NAME=platform-$ENVIRONMENT
 VALUES_FILE=values/argocd/values-$ENVIRONMENT.yaml
 # helm repo add argocd https://argoproj.github.io/argo-helm
 # helm repo update
-helm upgrade --install --kube-context $CONTEXT -n $NAMESPACE -f $VALUES_FILE argocd argocd/argo-cd --version 5.42.2 --wait
+helm upgrade --install --kube-context $CONTEXT -n $NAMESPACE -f $VALUES_FILE argocd argocd/argo-cd --version 6.1.0 --wait --set configs.secret.argocdServerAdminPassword=$BCRYPT_HASH
 
 
 # add project to the argocd server using yaml file
