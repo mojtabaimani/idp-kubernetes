@@ -40,7 +40,7 @@ spec:
             - name: POSTGRES_HOST
               value: {{ .Values.backstage.appConfig.db.connection.host }}
             - name: POSTGRES_PORT
-              value: {{ .Values.backstage.appConfig.db.connection.port | toString }}
+              value: {{ .Values.backstage.appConfig.db.connection.port | quote }}
             - name: POSTGRES_USER
               value: {{ .Values.backstage.appConfig.db.connection.user }}
             - name: POSTGRES_PASSWORD
