@@ -11,9 +11,13 @@ applications:
     enabled: true
     path: values/hello/overlays/prd
 
-  configuration:
+  raw:
     enabled: true
-    path: apps/configuration/prd
+    path: apps/raw/prd
+
+  cnpg-database:
+    enabled: true
+    path: apps/cnpg-database/prd
 
 helmCharts:
   keycloak:

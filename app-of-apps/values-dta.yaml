@@ -8,10 +8,13 @@ applications:
     path: values/hello/overlays/dta
 
   # Raw manifest application
-  configuration:
+  raw:
     enabled: true
-    path: apps/configuration/dta
+    path: apps/raw/dta
 
+  cnpg-database:
+    enabled: true
+    path: apps/cnpg-database/dta
 
 helmCharts:
   keycloak:
