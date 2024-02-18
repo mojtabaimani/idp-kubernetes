@@ -41,6 +41,10 @@ kubectl create secret generic argocd-repo-green-services --context $CONTEXT -n $
 kubectl label secret argocd-repo-green-services argocd.argoproj.io/secret-type=repository --context $CONTEXT -n $NAMESPACE
 fi
 
+# generate secret for database (this is temporary until we have vault for secret management )
+kubectl create namespace cloudnative-pg --context $CONTEXT --dry-run=client -o yaml | kubectl apply --context $CONTEXT -f -
+kubectl create secret generic app-secret --type=kubernetes.io/basic-auth --from-literal=username=app --from-literal=password="$ADMIN_PASSWORD" --dry-run=client -o yaml | k apply --context $CONTEXT -n cloudnative-pg -f -
+
 # Create secret for argocd admin password from environment variable
 # Check if the ADMIN_PASSWORD environment variable is set
 if [ -z "$ADMIN_PASSWORD" ]; then
