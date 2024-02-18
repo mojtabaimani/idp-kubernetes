@@ -14,13 +14,13 @@ auth:
   adminUser: admin
   ## @param auth.adminPassword Keycloak administrator password for the new user
   ##
-  adminPassword: helloworld
+  # adminPassword: ""
   ## @param auth.existingSecret Existing secret containing Keycloak admin password
   ##
-  # existingSecret: pg-secret
+  existingSecret: pg-secret
   ## @param auth.passwordSecretKey Key where the Keycloak admin password is being stored inside the existing secret.
   ##
-  # passwordSecretKey: password
+  passwordSecretKey: password
 
 
   # port: 5432
