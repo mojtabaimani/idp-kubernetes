@@ -2,7 +2,7 @@ postgresql:
   enabled: false
 
 externalDatabase:
-  host: "cnpg-database-rw.cloudnative-pg.svc.cluster.local"
+  host: cnpg-database-rw.cloudnative-pg.svc.cluster.local
   user: app
   database: app
   existingSecret: pg-secret

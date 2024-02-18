@@ -13,3 +13,13 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+backstage:
+  appConfig:
+    db:
+      connection:
+        host: cnpg-database-rw.cloudnative-pg.svc.cluster.local
+        port: 5432
+        user: app
+        existingSecret: pg-secret
+        existingSecretPasswordKey: password

@@ -36,6 +36,18 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: POSTGRES_HOST
+              value: {{ .Values.backstage.appConfig.db.connection.host }}
+            - name: POSTGRES_PORT
+              value: {{ .Values.backstage.appConfig.db.connection.port | toString }}
+            - name: POSTGRES_USER
+              value: {{ .Values.backstage.appConfig.db.connection.user }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.backstage.appConfig.db.connection.existingSecret }}
+                  key: {{ .Values.backstage.appConfig.db.connection.existingSecretPasswordKey }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

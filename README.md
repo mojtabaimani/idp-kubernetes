@@ -44,3 +44,9 @@ First run `minikube tunnel -p <profile>`. Then use the ingress address like:
 ArgoCD dashboard: http://argocd.127.0.0.1.nip.io
 
 In some networks nip.io for 127.0.0.1 doesn't work and you have to change you internet network (for example use you mobile hotspot network) or change your dns server settings to google dns server.
+
+
+Todo:
+- [X] Connect keycloak to cloudnative-pg
+- [ ] Deploy Hashicorp Vault for secret management.
+- [ ] Each service use a different database and username and credentials for connecting to the database

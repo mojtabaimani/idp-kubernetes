@@ -53,6 +53,9 @@ kubectl create secret generic app-secret --type=kubernetes.io/basic-auth --from-
 # Create secret for keycloak from environment variable
 kubectl create namespace keycloak --context $CONTEXT --dry-run=client -o yaml | kubectl apply --context $CONTEXT -f -
 kubectl create secret generic pg-secret --type=kubernetes.io/basic-auth --from-literal=password="$ADMIN_PASSWORD" --dry-run=client -o yaml | kubectl apply --context $CONTEXT -n keycloak -f -
+# Create secret for backstage from environment variable
+kubectl create namespace backstage --context $CONTEXT --dry-run=client -o yaml | kubectl apply --context $CONTEXT -f -
+kubectl create secret generic pg-secret --type=kubernetes.io/basic-auth --from-literal=password="$ADMIN_PASSWORD" --dry-run=client -o yaml | kubectl apply --context $CONTEXT -n backstage -f -
 # Create secret for argocd admin password from environment variable
 # Generate bcrypt hash of the admin password
 BCRYPT_HASH=$(htpasswd -nbBC 10 "" $ADMIN_PASSWORD | tr -d ':\n' | sed 's/$2y/$2a/')
