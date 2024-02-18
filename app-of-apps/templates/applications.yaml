@@ -21,8 +21,6 @@ spec:
     {{- else }}
     path: apps/{{ default $name .name }}
     {{- end }}
-    directory:
-      recurse: true
   destination:
     namespace: {{ default $name .namespace }}
     server: {{ $.Values.global.spec.destination.server }}
