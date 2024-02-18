@@ -2,9 +2,19 @@ postgresql:
   enabled: false
 
 externalDatabase:
-  host: "postgresql.postgresql.svc.cluster.local"
-  password: 6y6y6y6y6y
-  user: postgres
+  host: "cnpg-database-rw.cloudnative-pg.svc.cluster.local"
+  user: app
+  database: app
+  existingSecret: pg-secret
+  existingSecretPasswordKey: password
+
+
+  # port: 5432
+  # password: ""
+  # existingSecretHostKey: ""
+  # existingSecretPortKey: ""
+  # existingSecretUserKey: ""
+  # existingSecretDatabaseKey: ""
 
 ingress:
   ## @param ingress.enabled Enable ingress record generation for Keycloak
