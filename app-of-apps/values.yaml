@@ -52,48 +52,48 @@ helmCharts:
   airflow:
     enabled: false
     repoURL: https://airflow.apache.org
-    targetRevision: 1.10.0
+    targetRevision: 1.12.0
     chart: airflow
 
   nginx-ingress:
     enabled: false
     repoURL: ghcr.io/nginxinc/charts
-    targetRevision: 0.18.0
+    targetRevision: 1.1.2
     chart: nginx-ingress
 
   kube-prometheus-stack:
     enabled: false
     repoURL: https://prometheus-community.github.io/helm-charts
     namespace: monitoring
-    targetRevision: 48.3.3
+    targetRevision: 56.7.0
     chart: kube-prometheus-stack
 
   loki:
     enabled: false
     repoURL: https://grafana.github.io/helm-charts
     namespace: monitoring
-    targetRevision: 0.71.1
+    targetRevision: 0.78.2
     chart: loki-distributed
 
   promtail:
     enabled: false
     repoURL: https://grafana.github.io/helm-charts
     namespace: monitoring
-    targetRevision: 6.14.1
+    targetRevision: 6.15.5
     chart: promtail
 
   harbor:
     enabled: false
     repoURL: https://helm.goharbor.io
     namespace: harbor
-    targetRevision: 1.12.4
+    targetRevision: 1.14.0
     chart: harbor
 
   cert-manager:
     enabled: false
     repoURL: https://charts.jetstack.io
     namespace: cert-manager
-    targetRevision: 1.12.3
+    targetRevision: 1.14.2
     chart: cert-manager
 
   actions-runner-controller:
@@ -114,7 +114,7 @@ helmCharts:
     enabled: false
     repoURL: https://dl.gitea.io/charts
     namespace: gitea
-    targetRevision: 9.5.0
+    targetRevision: 10.1.1
     chart: gitea
 
   postgresql:
