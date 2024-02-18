@@ -61,7 +61,7 @@ helmCharts:
     enabled: false
 
   gitea:
-    enabled: true
+    enabled: false
 
   postgresql:
     enabled: false
