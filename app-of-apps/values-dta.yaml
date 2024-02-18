@@ -7,6 +7,7 @@ applications:
     enabled: true
     path: values/hello/overlays/dta
 
+  # Raw manifest application
   configuration:
     enabled: true
     path: apps/configuration/dta
