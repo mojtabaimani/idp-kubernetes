@@ -18,7 +18,7 @@ applications:
 
 helmCharts:
   keycloak:
-    enabled: true
+    enabled: false
 
   helm-guestbook:
     enabled: false
