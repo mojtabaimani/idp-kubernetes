@@ -2,17 +2,20 @@ ingress:
   enabled: true
   className: "nginx"
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
     - host: backstage.127.0.0.1.nip.io
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+service:
+  type: ClusterIP
+  port: 7007
 
 backstage:
   appConfig:
