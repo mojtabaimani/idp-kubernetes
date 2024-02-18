@@ -15,88 +15,89 @@ global:
 applications:
   # A Kustomize application
   hello:
-    enabled: true
+    enabled: false
     path: values/hello/overlays/dta
 
   raw:
-    enabled: true
+    enabled: false
     path: apps/raw/dta
 
   cnpg-database:
-    enabled: true
+    enabled: false
+    namespace: cloudnative-pg
     path: apps/cnpg-database/dta
 
 
 helmCharts:
   teams-namespaces:
-    enabled: true
+    enabled: false
     namespace: default
 
   backstage:
-    enabled: true
+    enabled: false
 
 
   keycloak:
-    enabled: true
+    enabled: false
     repoURL: registry-1.docker.io/bitnamicharts
     chart: keycloak
     targetRevision: 16.0.3
 
   sealed-secrets:
-    enabled: true
+    enabled: false
     repoURL: https://bitnami-labs.github.io/sealed-secrets
     targetRevision: 2.11.0
     chart: sealed-secrets
 
   airflow:
-    enabled: true
+    enabled: false
     repoURL: https://airflow.apache.org
     targetRevision: 1.10.0
     chart: airflow
 
   nginx-ingress:
-    enabled: true
+    enabled: false
     repoURL: ghcr.io/nginxinc/charts
     targetRevision: 0.18.0
     chart: nginx-ingress
 
   kube-prometheus-stack:
-    enabled: true
+    enabled: false
     repoURL: https://prometheus-community.github.io/helm-charts
     namespace: monitoring
     targetRevision: 48.3.3
     chart: kube-prometheus-stack
 
   loki:
-    enabled: true
+    enabled: false
     repoURL: https://grafana.github.io/helm-charts
     namespace: monitoring
     targetRevision: 0.71.1
     chart: loki-distributed
 
   promtail:
-    enabled: true
+    enabled: false
     repoURL: https://grafana.github.io/helm-charts
     namespace: monitoring
     targetRevision: 6.14.1
     chart: promtail
 
   harbor:
-    enabled: true
+    enabled: false
     repoURL: https://helm.goharbor.io
     namespace: harbor
     targetRevision: 1.12.4
     chart: harbor
 
   cert-manager:
-    enabled: true
+    enabled: false
     repoURL: https://charts.jetstack.io
     namespace: cert-manager
     targetRevision: 1.12.3
     chart: cert-manager
 
   actions-runner-controller:
-    enabled: true
+    enabled: false
     repoURL: https://actions-runner-controller.github.io/actions-runner-controller
     namespace: actions-runner-system
     targetRevision: 0.22.0
@@ -104,27 +105,27 @@ helmCharts:
     syncWave: 0
 
   actions-runner:
-    enabled: true
+    enabled: false
     repoURL: https://github.com/mojtabaimani/idp-kubernetes.git
     namespace: actions-runner-system
     syncWave: 1
 
   gitea:
-    enabled: true
+    enabled: false
     repoURL: https://dl.gitea.io/charts
     namespace: gitea
     targetRevision: 9.5.0
     chart: gitea
 
   postgresql:
-    enabled: true
+    enabled: false
     repoURL: https://charts.bitnami.com/bitnami
     namespace: postgresql
     targetRevision: 14.1.0
     chart: postgresql
 
   cloudnative-pg:
-    enabled: true
+    enabled: false
     repoURL: https://cloudnative-pg.github.io/charts
     namespace: cloudnative-pg
     targetRevision: 0.20.1
