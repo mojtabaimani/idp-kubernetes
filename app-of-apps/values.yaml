@@ -13,9 +13,15 @@ global:
       targetRevision: 1-pg-configuration
 
 applications:
+  # A Kustomize application
+  hello:
+    enabled: true
+    path: values/hello/overlays/dta
 
-  # helm-guestbook:
-  #   enabled: true
+  configuration:
+    enabled: true
+    path: apps/configuration/dta
+
 
 helmCharts:
   teams-namespaces:
@@ -119,6 +125,3 @@ helmCharts:
     namespace: cloudnative-pg
     targetRevision: 0.20.1
     chart: cloudnative-pg
-
-  configuration:
-    enabled: true

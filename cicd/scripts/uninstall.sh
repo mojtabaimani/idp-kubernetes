@@ -44,6 +44,6 @@ spec:
 EOF
 
 helm uninstall argocd -n argocd --kube-context $CONTEXT -n $NAMESPACE
-kubectl get namespaces --kube-context $CONTEXT --no-headers -o custom-columns=":metadata.name" | grep -vE '^(default|kube-system|kube-public|kube-node-lease)$' | xargs -r kubectl delete namespace
+kubectl get namespaces --context $CONTEXT --no-headers -o custom-columns=":metadata.name" | grep -vE '^(default|kube-system|kube-public|kube-node-lease)$' | xargs -r kubectl delete namespace
 
 echo "IDP uninstalled successfully."

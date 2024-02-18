@@ -1,13 +1,20 @@
 global:
   env: dta
 
+applications:
+  # A Kustomize application
+  hello:
+    enabled: true
+    path: values/hello/overlays/dta
+
+  configuration:
+    enabled: true
+    path: apps/configuration/dta
+
 
 helmCharts:
   keycloak:
     enabled: true
-
-  airflow:
-    enabled: false
 
   helm-guestbook:
     enabled: false
@@ -17,8 +24,20 @@ helmCharts:
   sealed-secrets:
     enabled: true
 
+  airflow:
+    enabled: false
+
   nginx-ingress:
     enabled: true
+
+  cert-manager:
+    enabled: false
+
+  actions-runner-controller:
+    enabled: false
+
+  actions-runner:
+    enabled: false
 
   kube-prometheus-stack:
     enabled: true

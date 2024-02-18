@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cnpg-database
+  namespace: cloudnative-pg
+spec:
+  instances: 3
+
+  storage:
+    size: 10Gi
