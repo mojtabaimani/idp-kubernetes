@@ -18,3 +18,8 @@ spec:
 
   monitoring:
     enablePodMonitor: true
+
+  # FIXME:
+  enableSuperuserAccess: true
+  superuserSecret:
+    name: app-secret
