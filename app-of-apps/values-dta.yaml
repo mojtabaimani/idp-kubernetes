@@ -74,4 +74,4 @@ helmCharts:
     enabled: true
 
   cloudnative-pg:
-    enabled: true
+    enabled: false
