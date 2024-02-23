@@ -15,7 +15,7 @@ spec:
   source:
     path: ./app-of-apps
     repoURL: https://github.com/mojtabaimani/idp-kubernetes.git
-    targetRevision: 1-pg-configuration
+    targetRevision: HEAD
     helm:
       valueFiles:
         - values-dta.yaml
