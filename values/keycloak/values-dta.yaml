@@ -3,9 +3,9 @@ postgresql:
 
 externalDatabase:
   host: cnpg-database-rw.cloudnative-pg.svc.cluster.local
-  user: app
-  database: app
-  existingSecret: pg-secret
+  user: superuser
+  database: keycloak
+  existingSecret: superuser
   existingSecretPasswordKey: password
 
 auth:
