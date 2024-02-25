@@ -31,7 +31,7 @@ helmCharts:
   airflow:
     enabled: false
 
-  nginx-ingress:
+  ingress-nginx:
     enabled: true
 
   cert-manager:
@@ -76,5 +76,5 @@ helmCharts:
   cloudnative-pg:
     enabled: true
 
-  nginx-ingress:
+  ingress-nginx:
     enabled: true
