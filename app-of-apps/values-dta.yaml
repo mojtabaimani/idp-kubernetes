@@ -75,3 +75,6 @@ helmCharts:
 
   cloudnative-pg:
     enabled: true
+
+  nginx-ingress:
+    enabled: true

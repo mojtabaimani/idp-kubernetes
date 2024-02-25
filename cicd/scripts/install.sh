@@ -49,13 +49,19 @@ if [ -z "$ADMIN_PASSWORD" ]; then
 fi
 # Create secret for postgresql from environment variable
 kubectl create namespace cloudnative-pg --context $CONTEXT --dry-run=client -o yaml | kubectl apply --context $CONTEXT -f -
+# a secret for the postgresql database for app user
 kubectl create secret generic app-secret --type=kubernetes.io/basic-auth --from-literal=username=app --from-literal=password="$ADMIN_PASSWORD" --dry-run=client -o yaml | kubectl apply --context $CONTEXT -n cloudnative-pg -f -
+# a secret for the postgresql database for superuser
+kubectl create secret generic superuser --type=kubernetes.io/basic-auth --from-literal=username=superuser --from-literal=password="$ADMIN_PASSWORD" --dry-run=client -o yaml | kubectl apply --context $CONTEXT -n cloudnative-pg -f -
+
 # Create secret for keycloak from environment variable
 kubectl create namespace keycloak --context $CONTEXT --dry-run=client -o yaml | kubectl apply --context $CONTEXT -f -
 kubectl create secret generic pg-secret --type=kubernetes.io/basic-auth --from-literal=password="$ADMIN_PASSWORD" --dry-run=client -o yaml | kubectl apply --context $CONTEXT -n keycloak -f -
+
 # Create secret for backstage from environment variable
 kubectl create namespace backstage --context $CONTEXT --dry-run=client -o yaml | kubectl apply --context $CONTEXT -f -
 kubectl create secret generic pg-secret --type=kubernetes.io/basic-auth --from-literal=password="$ADMIN_PASSWORD" --dry-run=client -o yaml | kubectl apply --context $CONTEXT -n backstage -f -
+
 # Create secret for argocd admin password from environment variable
 # Generate bcrypt hash of the admin password
 BCRYPT_HASH=$(htpasswd -nbBC 10 "" $ADMIN_PASSWORD | tr -d ':\n' | sed 's/$2y/$2a/')
