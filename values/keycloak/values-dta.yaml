@@ -5,7 +5,7 @@ externalDatabase:
   host: cnpg-database-rw.cloudnative-pg.svc.cluster.local
   user: superuser
   database: keycloak
-  existingSecret: superuser
+  existingSecret: pg-secret
   existingSecretPasswordKey: password
 
 auth:
