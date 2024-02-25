@@ -78,3 +78,6 @@ helmCharts:
 
   ingress-nginx:
     enabled: true
+
+  cert-manager:
+    enabled: true
